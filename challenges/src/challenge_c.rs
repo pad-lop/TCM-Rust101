@@ -18,19 +18,13 @@ pub fn execute_challenge() {
     let x: i32 = input_a.trim().parse().expect("Numero A no es un entero!");
     let y: i32 = input_b.trim().parse().expect("Numero B no es un entero!");
 
-    let mut operator;
+    //Receive an operator
+    println!("Choose an operator: +, -, *, /");
+    let mut operator = String::new();
+    io::stdin().read_line(&mut operator);
+    let operator_slice = operator.trim();
 
-    operator = ("+");
-    perform_operation(x, y, operator);
-
-    operator = ("-");
-    perform_operation(x, y, operator);
-
-    operator = ("*");
-    perform_operation(x, y, operator);
-
-    operator = ("/");
-    perform_operation(x, y, operator);
+    perform_operation(x, y, operator_slice);
 }
 
 fn perform_operation(x: i32, y: i32, operator: &str) {
